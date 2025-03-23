@@ -1,1 +1,1 @@
-# olympus-bolt-webapp
+# bolt-olympus-app
