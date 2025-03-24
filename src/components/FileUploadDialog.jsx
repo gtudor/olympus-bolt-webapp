@@ -52,7 +52,7 @@ function FileUploadDialog({ onClose, currentFolder, accessToken }) {
     formData.append('file', file);
 
     try {
-      const response = await fetchWithAuth(`${API_BASE}/api/v1/file/upload?directoryId=${currentFolder.id}`, {
+      const response = await fetchWithAuth(`/api/v1/file/upload?directoryId=${currentFolder.id}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${accessToken}`,
