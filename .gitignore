@@ -1,0 +1,52 @@
+# dependencies
+/node_modules
+
+# production
+/build
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# editor directories and files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# optional eslint cache
+.eslintcache
+
+# testing
+/coverage
+
+# parcel-bundler cache (if using Parcel)
+/.cache
+
+# firebase
+.firebaserc
+
+# macOS system files
+*.DS_Store
+
+# local config files
+*.local
+
+# storybook build
+/storybook-static
+
+# output of `npm pack`
+*.tgz
+
+# react-native
+.expo/
