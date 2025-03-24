@@ -7,6 +7,7 @@ import {
   faCheckCircle,
   faExclamationCircle
 } from '@fortawesome/free-solid-svg-icons';
+import { fetchWithAuth } from '../utils/api';
 
 function FileUploadDialog({ onClose, currentFolder, accessToken }) {
   const [isDragging, setIsDragging] = useState(false);
@@ -14,6 +15,7 @@ function FileUploadDialog({ onClose, currentFolder, accessToken }) {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [errorMessage, setErrorMessage] = useState('');
   const fileInputRef = useRef(null);
+
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -50,7 +52,7 @@ function FileUploadDialog({ onClose, currentFolder, accessToken }) {
     formData.append('file', file);
 
     try {
-      const response = await fetch(`/olympus-api/api/v1/file/upload?directoryId=${currentFolder.id}`, {
+      const response = await fetchWithAuth(`/api/v1/file/upload?directoryId=${currentFolder.id}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${accessToken}`,

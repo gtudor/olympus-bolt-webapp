@@ -4,12 +4,19 @@ export const getApiUrl = (endpoint) => `${API_BASE}${endpoint}`;
 
 export const fetchWithAuth = async (endpoint, options = {}) => {
   const url = getApiUrl(endpoint);
+
+  // Determine if body is FormData
+  const isFormData = options.body instanceof FormData;
+
+  const headers = {
+    ...options.headers,
+    // Only set Content-Type if not uploading FormData
+    ...(isFormData ? {} : { 'Content-Type': 'application/json' })
+  };
+
   const response = await fetch(url, {
     ...options,
-    headers: {
-      ...options.headers,
-      'Content-Type': 'application/json',
-    }
+    headers
   });
 
   if (!response.ok) {
